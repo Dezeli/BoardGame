@@ -7,8 +7,19 @@
 </head>
 
 <body>
-    회원가입 화면입니다
-    
+    <div>
+        <p><회원 가입></p>
+        <form action="{% url 'user:join' %}" method="POST">
+            {% csrf_token %}
+            {{ form }}
+            <input type="submit" name="" value="추가하기">
+        </form>
+    </div>
+        {% if messages %}
+        {% for message in messages %}
+        <script>alert("{{ message }}")</script>
+        {% endfor %}
+        {% endif %}
 </body>
 
 <footer>

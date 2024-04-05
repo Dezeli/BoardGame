@@ -7,8 +7,21 @@
 </head>
 
 <body>
-    로그인 화면입니다.
-    
+    <main>
+        <div>
+            <p><로그인></p>
+            <form action="{% url 'user:login' %}" method="POST">
+                {% csrf_token %}
+                {{ form }}
+                <input type="submit" name="" value="로그인">
+            </form>
+            {% if messages %}
+            {% for message in messages %}
+            <script>alert("{{ message }}")</script>
+            {% endfor %}
+            {% endif %}
+        </div>
+    </main>
 </body>
 
 <footer>
